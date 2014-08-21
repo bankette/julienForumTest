@@ -1,0 +1,20 @@
+{%extends 'JulienForumBundle::layout.html.twig'%}
+{% block body%}
+<h1>Liste des postes</h1>
+    {%if listPosts | length == 0%}
+        <p>Rien pour le moment...</p>
+    {%endif%}
+    {% for post in listPosts %}
+        {% spaceless %}
+            <p>
+                {{post.title}} - {{post.content}} -
+                {% if is_spam(post)%}
+                    C'est un spam, fuyez pauvre fou !!
+                {%else%}
+                    OK il est gentil
+                {%endif%}
+                 - ({{post.comments|length}} commentaire{% if post.comments|length > 1%}s{%endif%})
+            </p>
+        {% endspaceless %}
+    {% endfor%}
+{%endblock%}

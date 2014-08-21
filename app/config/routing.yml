@@ -1,0 +1,5 @@
+julien_forum:
+    resource: "@JulienForumBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
